@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import PrivateRoutes from ".";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 
@@ -7,7 +8,9 @@ const AppRoutes = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/home" element={<PrivateRoutes />}>
+          <Route path="/home" element={<Home />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
